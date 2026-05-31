@@ -15,19 +15,24 @@ apt-get install -y ffmpeg
 *Requirements file is at the root of this repository.*
 *All code has been tested on PyTorch 2.5.1 + CUDA 12.1 with an RTX 4090.*
 
+
 ## 3. Pretrained Weights
 
 Download the following files into `checkpoints/` **before running any evaluation**.
 
-| File | Approx. Size | Purpose | Download Link |
-|------|-------------|---------|---------------|
-| `i3d_pretrained_400.pt` | 49 MB | FVD/KVD | [HuggingFace](https://huggingface.co/LanguageBind/Open-Sora-Plan-v1.0.0) |
-| `AudioCLIP-Full-Training.pt` | 350 MB | FAD | [GitHub Releases](https://github.com/AndreyGuzhov/AudioCLIP/releases) |
-| `cavp_epoch66.ckpt` | 1.3 GB | CAVP Score | [HuggingFace](https://huggingface.co/SimianLuo/Diff-Foley) |
-| `synchformer_state_dict.pth` | 5.0 GB | DeSync | [HuggingFace](https://huggingface.co/v-iashin/Synchformer) |
-| `imagebind_huge.pth` | 4.5 GB | ImageBind series | **Auto‑downloaded** on first run |
+| File | Approx. Size | Purpose | Official Download Link |
+|------|-------------|---------|------------------------|
+| `i3d_pretrained_400.pt` | 49 MB | FVD/KVD | [Official JavisBench URL](https://huggingface.co/spaces/LanguageBind/Open-Sora-Plan-v1.0.0/resolve/810fa8c4bdb3a4c8eec9bd57375c29bde6fb46de/opensora/eval/fvd/videogpt/i3d_pretrained_400.pt) |
+| `AudioCLIP-Full-Training.pt` | ~350 MB | FAD | [Official AudioCLIP Release](https://github.com/AndreyGuzhov/AudioCLIP/releases/download/v0.1/AudioCLIP-Full-Training.pt) |
+| `cavp_epoch66.ckpt` | ~1.3 GB | CAVP Score | [Official Diff‑Foley Repository](https://huggingface.co/SimianLuo/Diff-Foley/resolve/main/diff_foley_ckpt/cavp_epoch66.ckpt) |
+| `synchformer_state_dict.pth` | ~5.0 GB | DeSync | [Official Synchformer Mirror (MMAudio)](https://github.com/hkchengrex/MMAudio/releases/download/v0.1/synchformer_state_dict.pth) |
+| `imagebind_huge.pth` | 4.5 GB | ImageBind series | [Official Meta ImageBind](https://dl.fbaipublicfiles.com/imagebind/imagebind_huge.pth) |
 
-> If your machine cannot access HuggingFace, set `export HF_ENDPOINT=https://hf-mirror.com`.
+> All links are the exact URLs used by the JavisBench source code or the original model repositories.  
+> If a download fails due to network restrictions, download the file on a machine with stable internet and upload it to the `checkpoints/` directory.  
+> `imagebind_huge.pth` is automatically downloaded on the first evaluation run; the link above is provided for manual download if needed.
+
+
 
 ## 4. Evaluated Metrics
 
