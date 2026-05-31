@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 import os
-import sys
 import csv
 import subprocess
 import argparse
@@ -13,9 +12,10 @@ def extract_audio(video_dir):
             mp4 = os.path.join(video_dir, f)
             wav = os.path.join(video_dir, base + '.wav')
             if not os.path.exists(wav):
-                subprocess.run(['ffmpeg', '-y', '-i', mp4, '-vn',
-                                '-acodec', 'pcm_s16le', '-ar', '16000', '-ac', '1', wav],
-                               capture_output=True, stderr=subprocess.DEVNULL)
+                subprocess.run([
+                    'ffmpeg', '-y', '-i', mp4, '-vn',
+                    '-acodec', 'pcm_s16le', '-ar', '16000', '-ac', '1', wav
+                ], capture_output=True)
 
 def generate_csv(video_dir, output_csv):
     prompts_dict = {}
