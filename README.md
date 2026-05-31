@@ -7,18 +7,31 @@ This evaluation module is designed to standardize the assessment of JAVG models.
 ## 2. Installation
 
 ```bash
+# 1. Clone this repository
+git clone https://github.com/你的用户名/turbo-t2av.git
+cd turbo-t2av/Evaluation
+
+# 2. Create conda environment
 conda create -n javis_eval python=3.10 -y
 conda activate javis_eval
-pip install -r requirements_eval.txt
-apt-get install -y ffmpeg
-```
-*Requirements file is at the root of this repository.*
-*All code has been tested on PyTorch 2.5.1 + CUDA 12.1 with an RTX 4090.*
 
+# 3. Install Python dependencies
+pip install -r requirements_eval.txt
+
+# 4. Install system FFmpeg
+apt-get install -y ffmpeg
+
+# 5. Download JavisBench evaluation source code
+git clone https://github.com/JavisVerse/JavisDiT.git temp_javis
+cp -r temp_javis/eval/javisbench ./javisbench
+rm -rf temp_javis
+The javisbench/ directory is not included in this repository; it must be fetched from the official JavisDiT repository.
+```
 
 ## 3. Pretrained Weights
 
-Download the following files into `checkpoints/` **before running any evaluation**.
+Download the following files into `checkpoints/`.  
+(You can create this directory with `mkdir -p checkpoints`.)
 
 | File | Approx. Size | Purpose | Official Download Link |
 |------|-------------|---------|------------------------|
@@ -28,10 +41,8 @@ Download the following files into `checkpoints/` **before running any evaluation
 | `synchformer_state_dict.pth` | ~5.0 GB | DeSync | [Official Synchformer Mirror (MMAudio)](https://github.com/hkchengrex/MMAudio/releases/download/v0.1/synchformer_state_dict.pth) |
 | `imagebind_huge.pth` | 4.5 GB | ImageBind series | [Official Meta ImageBind](https://dl.fbaipublicfiles.com/imagebind/imagebind_huge.pth) |
 
-> All links are the exact URLs used by the JavisBench source code or the original model repositories.  
-> If a download fails due to network restrictions, download the file on a machine with stable internet and upload it to the `checkpoints/` directory.  
-> `imagebind_huge.pth` is automatically downloaded on the first evaluation run; the link above is provided for manual download if needed.
-
+> All links are the exact URLs used by the JavisBench source code or original model repositories.  
+> `imagebind_huge.pth` is automatically downloaded on first evaluation run; the link above is provided for manual download if needed.
 
 
 ## 4. Evaluated Metrics
