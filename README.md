@@ -8,8 +8,8 @@ This evaluation module is designed to standardize the assessment of JAVG models.
 
 ```bash
 # 1. Clone this repository
-git clone https://github.com/你的用户名/turbo-t2av.git
-cd turbo-t2av/Evaluation
+git clone https://github.com/Ly-LiuYuan/Evaluation
+cd Evaluation
 
 # 2. Create conda environment
 conda create -n javis_eval python=3.10 -y
@@ -25,8 +25,9 @@ apt-get install -y ffmpeg
 git clone https://github.com/JavisVerse/JavisDiT.git temp_javis
 cp -r temp_javis/eval/javisbench ./javisbench
 rm -rf temp_javis
-The javisbench/ directory is not included in this repository; it must be fetched from the official JavisDiT repository.
 ```
+The javisbench/ directory is not included in this repository; it must be fetched from the official JavisDiT repository.
+
 
 ## 3. Pretrained Weights
 
